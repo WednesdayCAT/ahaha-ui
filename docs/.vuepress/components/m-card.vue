@@ -1,10 +1,13 @@
 <template>
-  <div class="m-card" :style="width ? {width: width + 'px'} : {}">
-    <div class="m-card-img" :style="imgHeight ? {height: imgHeight + 'px'} : {}">
-      <img :src="imgSrc" alt="img">
+  <div class="m-card" :style="width ? { width: width + 'px' } : {}">
+    <div
+      class="m-card-img"
+      :style="imgHeight ? { height: imgHeight + 'px' } : {}"
+    >
+      <img :src="imgSrc" alt="img" />
     </div>
     <div v-if="summary" class="m-card-summary">
-      {{summary}}
+      {{ summary }}
     </div>
     <div v-else class="m-card-summary">
       <slot></slot>
@@ -16,7 +19,7 @@
 <script>
 // 卡片组件
 export default {
-  name: 'm-card',
+  name: "m-card",
   props: {
     width: {
       type: Number,
@@ -24,7 +27,7 @@ export default {
     },
     imgSrc: {
       type: String,
-      default: '',
+      default: "",
     },
     imgHeight: {
       type: Number,
@@ -32,8 +35,31 @@ export default {
     },
     summary: {
       type: String,
-      default: '',
+      default: "",
     },
   },
-}
+};
 </script>
+
+<style>
+.m-card {
+  width: 270px;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 10px 0 rgba(95, 101, 105, 0.15);
+  padding-bottom: 8px;
+}
+.m-card-img {
+  height: 152px;
+}
+.m-card-img img {
+  width: 100%;
+  height: 100%;
+}
+.m-card-summary {
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+</style>
